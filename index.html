@@ -1,11 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Echoes of Spirited Away</title>
+  <link href="css/grid.css" rel="stylesheet" />
+  <link href="css/main.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- HEADER -->
+  <header class="header-bg">
+    <div class="grid-con header-content">
+      <div class="col-span-2">
+        <h1 class="site-title">Echoes of Spirited Away</h1>
+      </div>
+      <nav class="col-span-2 nav-links">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#" class="active">Music Mixer</a></li>
+          <li><a href="#">Characters</a></li>
+          <li><a href="#">Sounds</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Music Stage and Side Panel -->
+  <div class="grid-con music-mixer-row">
     
+    <div class="col-span-4 m-col-span-9 l-col-span-9 xl-col-span-9 stage-left">
+      <div class="stage-wrapper">
+        <img src="images/Music Stage.png" alt="Music Stage" class="stage-img" />
+
+        <!-- Control Buttons -->
+        <div class="controls-wrapper">
+          <div class="controls">
+            <button class="ctrl-btn" id="play-btn">
+              <img src="images/playbtn.png" alt="Play" width="40">
+            </button>
+            
+            <button class="ctrl-btn" id="pause-btn">
+              <img src="images/pausebtn.png" alt="Pause" width="40">
+            </button>
+            
+            <button class="ctrl-btn" id="stop-btn">
+              <img src="images/stopbtn.png" alt="Stop" width="40">
+            </button>
+            
+            <button class="ctrl-btn" id="reset-btn">
+              <img src="images/resetbtn.png" alt="Reset" width="40">
+            </button>
+          </div>
+        </div>
+
+        <!-- Token Drop Zones -->
+        <div class="drop-box" id="drop-1"></div>
+        <div class="drop-box" id="drop-2"></div>
+        <div class="drop-box" id="drop-3"></div>
+      </div>
+
+      <!-- Bath Drop Zones -->
+      <div class="bath-dropzone">
+        <div class="drop-spot" id="spot1"></div>
+        <div class="drop-spot" id="spot2"></div>
+        <div class="drop-spot" id="spot3"></div>
+      </div>
+
+    </div>
+
+    <!-- Tokens Panel and Instructions -->
+    <div class="col-span-4 m-col-span-3 l-col-span-3 xl-col-span-3 stage-right">
+      <div class="token-box">
+        <h4 class="token-heading">Choose your<br>Soothing Spirits<br>(Drag and Drop)</h4>
+
+        <!-- Tokens -->
+        <div class="token-grid">
+          <div class="token-wrap">
+            <img src="images/T1_Haku.png" class="token" id="token-1" draggable="true" data-number="1" data-character="Haku" />
+            <p>TOKEN 1</p>
+          </div>
+
+          <div class="token-wrap">
+            <img src="images/T2_Chihiro.png" class="token" id="token-2" draggable="true" data-number="2" data-character="Chihiro" />
+            <p>TOKEN 2</p>
+          </div>
+
+          <div class="token-wrap">
+            <img src="images/T3_Noface.png" class="token" id="token-3" draggable="true" data-number="3" data-character="Noface" />
+            <p>TOKEN 3</p>
+          </div>
+
+          <div class="token-wrap">
+            <img src="images/T4_Mouse.png" class="token" id="token-4" draggable="true" data-number="4" data-character="Mouse" />
+            <p>TOKEN 4</p>
+          </div>
+
+          <div class="token-wrap">
+            <img src="images/T5_Yubaba.png" class="token" id="token-5" draggable="true" data-number="5" data-character="Yubaba" />
+            <p>TOKEN 5</p>
+          </div>
+
+          <div class="token-wrap">
+            <img src="images/T6_Frog.png" class="token" id="token-6" draggable="true" data-number="6" data-character="Frog" />
+            <p>TOKEN 6</p>
+          </div>
+        </div>
+
+        <!-- Spirit Images -->
+         <img id="spirit-1" src="images/HAKU_SVG.svg" class="spirit-img hidden" alt="Haku">
+         <img id="spirit-2" src="images/CHIHIRO_SVG.svg" class="spirit-img hidden" alt="Chihiro">
+         <img id="spirit-3" src="images/NO_FACE_SVG.svg" class="spirit-img hidden" alt="No Face">
+         <img id="spirit-4" src="images/Mouse.png" class="spirit-img hidden" alt="Mouse">
+         <img id="spirit-5" src="images/YUBABA_SVG.svg" class="spirit-img hidden" alt="Yubaba">
+         <img id="spirit-6" src="images/FROG_SVG.svg" class="spirit-img hidden" alt="Frog">
+
+         <!-- Audio Tracks -->
+          <audio id="audio-1" src="audio/haku.mp3"></audio>
+          <audio id="audio-2" src="audio/chihiro.mp3"></audio>
+          <audio id="audio-3" src="audio/noface.mp3"></audio>
+          <audio id="audio-4" src="audio/mouse.mp3"></audio>
+          <audio id="audio-5" src="audio/Yubaba.mp3"></audio>
+          <audio id="audio-6" src="audio/Frog.mp3"></audio>
+
+
+        <!-- Instructions -->
+        <div class="instruction-box">
+          <h4>INSTRUCTIONS</h4>
+          <p>
+            Mix up to three soothing spirits.<br>
+            Each bath token reveals a calming character and their unique lofi tune.<br>
+            When placed on the stage, the token gently disappears as the spirit appears and music begins.<br>
+            Once the music stops, the spirit fades away — and the token returns, ready to be used again.<br>
+            Drag, listen, unwind — and enjoy the harmony.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer-bg">
+    <p>@2025MusicMixerDragandDrop by: Justine Nathalie Ng and Taylor Schwarzbauer</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+
 </body>
 </html>
